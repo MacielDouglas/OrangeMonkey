@@ -79,3 +79,20 @@ export const controleFormCadastros = [
     ],
   },
 ];
+
+export const loginFormControl = [
+  {
+    id: 'email',
+    type: 'email',
+    placeholder: 'Digite seu email',
+    label: 'Email',
+    componentType: 'input',
+  },
+  {
+    id: 'senha',
+    type: 'password',
+    placeholder: 'Digite uma senha',
+    label: 'Senha',
+    componentType: 'input',
+  },
+];
