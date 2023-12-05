@@ -4,6 +4,8 @@ import { GlobalContext } from '@/context';
 import { adminNavOptions, navOptions, styles } from '@/utils';
 import { Fragment, useContext, useEffect } from 'react';
 import CommonModal from '../CommonModal';
+// import logo from '../../assets/logo.svg';
+// import { Image } from 'next/image';
 
 const isAdminView = false;
 const isAuthUser = true;
@@ -74,7 +76,9 @@ export default function Navbar() {
       <nav className="bg-white fixed w-full  z-20 top-0 left-0 border-b border-gray-200 text-black">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
           <div className="flex items-center cursor-pointer">
-            <p className="self-center text-2xl font-semibold whitespace-nowrap">
+            {/* <Image src={logo} /> */}
+            <img src="/images/logo.svg" className="w-10" />
+            <p className="hidden sm:block self-center text-2xl font-semibold whitespace-nowrap">
               Orange<span className="text-orange-500">monkey</span>
             </p>
           </div>
@@ -82,21 +86,33 @@ export default function Navbar() {
           <div className="flex md:order-2 gap-2">
             {!isAdminView && isAuthUser ? (
               <Fragment>
-                <button className={styles.button}>Conta</button>
-                <button className={styles.button}>Carrinho</button>
+                <button className="mt-1.5 inline-block bg-black px-5 py-3 text-xs font-medium uppercase tracking-wide text-white">
+                  Conta
+                </button>
+                <button className="mt-1.5 inline-block bg-black px-5 py-3 text-xs font-medium uppercase tracking-wide text-white">
+                  Carrinho
+                </button>
               </Fragment>
             ) : null}
             {user?.role === 'admin' ? (
               isAdminView ? (
-                <button className={styles.button}>Cliente</button>
+                <button className="mt-1.5 inline-block bg-black px-5 py-3 text-xs font-medium uppercase tracking-wide text-white">
+                  Cliente
+                </button>
               ) : (
-                <button className={styles.button}>Administrador</button>
+                <button className="mt-1.5 inline-block bg-black px-5 py-3 text-xs font-medium uppercase tracking-wide text-white">
+                  Administrador
+                </button>
               )
             ) : null}
             {isAuthUser ? (
-              <button className={styles.button}>Sair</button>
+              <button className="mt-1.5 inline-block bg-black px-5 py-3 text-xs font-medium uppercase tracking-wide text-white">
+                Sair
+              </button>
             ) : (
-              <button className={styles.button}>Login</button>
+              <button className="mt-1.5 inline-block bg-black px-5 py-3 text-xs font-medium uppercase tracking-wide text-white">
+                Login
+              </button>
             )}
           </div>
           <button
