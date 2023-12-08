@@ -8,10 +8,28 @@ export const login = async (formData) => {
       body: JSON.stringify(formData),
     });
 
-    const data = response.json();
+    const data = await response.json();
 
     return data;
   } catch (error) {
-    console.log(error);
+    console.error('Erro ao enviar solicitação:', error);
   }
 };
+
+// export const login = async (formData) => {
+//   try {
+//     const response = await fetch('/api/login', {
+//       method: 'POST',
+//       headers: {
+//         'content-type': 'application/json',
+//       },
+//       body: JSON.stringify(formData),
+//     });
+
+//     const data = await response.json();
+
+//     return data;
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };

@@ -1,6 +1,5 @@
 import connectToDB from '@/database';
-import { dynamic } from './../register/route';
-import { Joi } from 'joi';
+import Joi from 'joi';
 import User from '@/models/user';
 import { compare } from 'bcryptjs';
 import jwt from 'jsonwebtoken';
@@ -23,7 +22,7 @@ export async function POST(req) {
   if (error) {
     return NextResponse.json({
       success: false,
-      message: email.details[0],
+      message: email.details[0].message,
     });
   }
 

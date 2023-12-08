@@ -4,15 +4,12 @@ import { GlobalContext } from '@/context';
 import { adminNavOptions, navOptions, styles } from '@/utils';
 import { Fragment, useContext, useEffect } from 'react';
 import CommonModal from '../CommonModal';
+import Cookies from 'js-cookie';
+import { useRouter } from 'next/navigation';
 // import logo from '../../assets/logo.svg';
 // import { Image } from 'next/image';
 
 const isAdminView = false;
-const isAuthUser = true;
-
-const user = {
-  role: 'admin',
-};
 
 function NavItems({ isModalView = false }) {
   return (
@@ -51,6 +48,9 @@ function NavItems({ isModalView = false }) {
 
 export default function Navbar() {
   const { showNavModal, setShowNavModal } = useContext(GlobalContext);
+  const { user, isAuthUser, setIsAuthUser, setUser } =
+    useContext(GlobalContext);
+  const router = useRouter();
 
   const handleToggleMenu = () => {
     setShowNavModal(!showNavModal);
@@ -70,6 +70,16 @@ export default function Navbar() {
       window.removeEventListener('resize', handleResize);
     };
   }, [showNavModal, setShowNavModal]);
+
+  console.log(user, isAuthUser, 'Navbar');
+
+  function handleLogout() {
+    setIsAuthUser(false);
+    setUser(null);
+    Cookies.remove('token');
+    localStorage.clear();
+    router.push('/');
+  }
 
   return (
     <>
@@ -106,11 +116,17 @@ export default function Navbar() {
               )
             ) : null}
             {isAuthUser ? (
-              <button className="mt-1.5 inline-block bg-black px-5 py-3 text-xs font-medium uppercase tracking-wide text-white">
+              <button
+                onClick={handleLogout}
+                className="mt-1.5 inline-block bg-black px-5 py-3 text-xs font-medium uppercase tracking-wide text-white"
+              >
                 Sair
               </button>
             ) : (
-              <button className="mt-1.5 inline-block bg-black px-5 py-3 text-xs font-medium uppercase tracking-wide text-white">
+              <button
+                onClick={() => router.push('/login')}
+                className="mt-1.5 inline-block bg-black px-5 py-3 text-xs font-medium uppercase tracking-wide text-white"
+              >
                 Login
               </button>
             )}
