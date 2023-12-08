@@ -123,7 +123,7 @@ export default function Register() {
                   >
                     {pageLevelLoader ? (
                       <ComponentLevelLoader
-                        text={'Registering'}
+                        text={'Cadastrando'}
                         color={'#ffffff'}
                         loading={pageLevelLoader}
                       />
