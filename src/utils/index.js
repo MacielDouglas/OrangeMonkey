@@ -30,12 +30,12 @@ export const adminNavOptions = [
   {
     id: 'adminLista',
     label: 'Gerencie todos os produtos',
-    path: '/admin/todos_produtos',
+    path: '/admin-view/all-products',
   },
   {
     id: 'adminNovoProduto',
     label: 'Adicionar Novo Produto',
-    path: '/admin/adicionar_produto',
+    path: '/admin-view/add-product',
   },
 ];
 
@@ -94,5 +94,93 @@ export const loginFormControl = [
     placeholder: 'Digite uma senha',
     label: 'Senha',
     componentType: 'input',
+  },
+];
+
+export const adminProductFormControls = [
+  {
+    id: 'nome',
+    type: 'text',
+    placeholder: 'Nome do produto',
+    label: 'Nome',
+    componentType: 'input',
+  },
+  {
+    id: 'preço',
+    type: 'number',
+    placeholder: 'Preço do produto',
+    label: 'Preço',
+    componentType: 'input',
+  },
+  {
+    id: 'descrição',
+    type: 'text',
+    placeholder: 'Descrição do produto',
+    label: ' Descrição',
+    componentType: 'input',
+  },
+  {
+    id: 'categoria',
+    type: '',
+    placeholder: '',
+    label: 'Categoria',
+    componentType: 'select',
+    options: [
+      {
+        id: 'masculino',
+        label: 'Masculino',
+      },
+      {
+        id: 'feminino',
+        label: 'Feminino',
+      },
+      {
+        id: 'infantil',
+        label: 'Infantil',
+      },
+    ],
+  },
+  {
+    id: 'entrega',
+    type: '',
+    placeholder: '',
+    label: 'A venda',
+    componentType: 'select',
+    options: [
+      {
+        id: 'sim',
+        label: 'Sim',
+      },
+      {
+        id: 'não',
+        label: 'Não',
+      },
+    ],
+  },
+  {
+    id: 'promoção',
+    type: 'number',
+    placeholder: 'Valor promoção',
+    label: ' Promoção',
+    componentType: 'input',
+  },
+];
+
+export const TamanhosDisponiveis = [
+  {
+    id: 'p',
+    label: 'P',
+  },
+  {
+    id: 'm',
+    label: 'M',
+  },
+  {
+    id: 'g',
+    label: 'G',
+  },
+  {
+    id: 'gg',
+    label: 'GG',
   },
 ];
